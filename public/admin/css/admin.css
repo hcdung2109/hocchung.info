@@ -1,0 +1,12 @@
+* {font-family:'Noto Serif', serif;font-size:14px !important;}
+.menu-on-top .menu-item-parent {max-width: none !important;}
+.menu-on-top aside#left-panel nav>ul>li>a {}
+.clear-both {clear: both}
+.float-none {float: none !important;}
+.width-percent-100 {width: 100% !important;}
+.text-bold { font-weight: bold;}
+.float-right {float: right !important;}
+.wid-100 {width: 100px !important;}
+table.article td img {width: 100px;}
+.table-category img { width: 140px; height: 70px;}
+.wid-150 { width: 150px; }
