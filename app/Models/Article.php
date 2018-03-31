@@ -157,4 +157,9 @@ class Article extends Model
         return self::where('category_id', $cate_id)->offset($offset)->limit($limit)->get();
     }
 
+    public static function getArticlesHomePage()
+    {
+        return self::paginate(15);
+    }
+
 }

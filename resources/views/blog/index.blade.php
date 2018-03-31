@@ -1,74 +1,65 @@
 @extends('blog.layouts.master')
 
+@section('breadcrumb')
+    <section class="breadcrumb_section">
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="/">Trang chủ</a></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+@endsection
+
 @section('content')
 
-    @foreach($categories as $index => $cate)
+    @foreach($articles as $article)
+    <div class="entity_wrapper">
+        <div class="entity_title">
+            <h1><a href="{{ route('blog.getArticle', $article) }}" target="_self">{{ $article->title }}</a>
+            </h1>
+        </div>
+        <!-- entity_title -->
 
-        @if ($articles[$index]->isNotEmpty())
-        <div class="category_section mobile">
-            <div class="article_title header_purple">
-                <h2><a href="{{ route('blog.getArticlesOfCategory', $cate) }}">{{ $cate->name }}</a></h2>
-            </div>
+        <div class="entity_meta">
+            <a href="#">10Aug- 2015</a>, by: <a href="#">Eric joan</a>
+        </div>
+        <!-- entity_meta -->
 
-            <div class="category_article_wrapper">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="top_article_img">
-                            <a href="{{ route('blog.getArticle', $articles[$index][0]) }}" target="_self">
-                                <img class="img-responsive" src="{{ asset('storage/app/'.$articles[$index][0]->image) }}" alt="feature-top">
-                            </a>
-                        </div>
-                        <!----top_article_img------>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="category_article_title">
-                            <h2><a href="{{ route('blog.getArticle', $articles[$index][0]) }}" target="_self">{{ $articles[$index][0]->title }}</a></h2>
-                        </div>
-                        <!----date------>
-                        {{--<div class="category_article_date"><a href="#">10Aug- 2015</a>, by: <a href="#">Eric joan</a></div>--}}
+        <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-full"></i>
+        </div>
+        <!-- rating -->
 
-                        <div class="category_article_content">
-                            {{ str_limit($articles[$index][0]->summary,255) }}
-                        </div>
+        <div class="entity_social">
+            <a href="#" class="icons-sm sh-ic"><i class="fa fa-share-alt"></i><b>424</b>
+                <span class="share_ic">Shares</span>
+            </a>
+            <a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a>
+            <!--Twitter-->
+            <a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a>
+            <!--Google +-->
+            <a href="#" class="icons-sm inst-ic"><i class="fa fa-google-plus"> </i></a>
+            <!--Linkedin-->
+            <a href="#" class="icons-sm tmb-ic"><i class="fa fa-ge"> </i></a>
+            <!--Pinterest-->
+            <a href="#" class="icons-sm rss-ic"><i class="fa fa-rss"> </i></a>
+            <span class="arrow">&raquo;</span>
+        </div>
+        <!-- entity_social -->
 
-                    </div>
-                </div>
-            </div>
 
-            <?php unset($articles[$index][0]); ?>
+        <div class="entity_content">
+            <p>{{ substr($article->summary,0,255) }}</p>
+        </div>
+        <!-- entity_content -->
 
-            <div class="category_article_wrapper">
-                <div class="row">
-                    @foreach($articles[$index] as $num => $row)
-                        @if ($num % 2 == 1 )
-                            <div class="col-md-6">
-                        @endif
-
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="{{ route('blog.getArticle', $row) }}"><img class="media-object" src="{{ asset('storage/app/'.$row->image) }}" alt="Generic placeholder image"></a>
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading"><a href="{{ route('blog.getArticle', $row) }}" target="_self">{{ $row->title }}</a></h3>
-                                {{--<span class="media-date"><a href="#">10Aug- 2015</a>,  by: <a href="#">Eric joan</a></span>--}}
-                                <div class="category_article_content">{{ str_limit($row->summary,150) }}</div>
-                                {{--<div class="media_social">--}}
-                                    {{--<span><a href="#"><i class="fa fa-comments-o"></i></a> {{ $row->comments_count }} Bình luận</span>--}}
-                                {{--</div>--}}
-                            </div>
-                        </div>
-
-                        @if ($num %2 == 0 || $row == $articles[$index]->last() )
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-            <p class="divider"><a href="{{ route('blog.getArticlesOfCategory', $cate) }}">More News&nbsp;&raquo;</a></p>
-         </div>
-        @endif
+    </div>
     @endforeach
-    <div>Logo made with <a href="https://
-www.designevo.com/" title="Free Online Logo Maker">DesignEvo</a></div>
 
 @endsection

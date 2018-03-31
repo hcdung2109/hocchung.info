@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="/">Trang chủ</a></li>
                     <li class="active"><a href="{{ route('blog.getArticlesOfCategory', $article->category) }}">{{ $article->category->name }}</a></li>
                     <li class="active">{{ $article->slug }}</li>
                 </ol>

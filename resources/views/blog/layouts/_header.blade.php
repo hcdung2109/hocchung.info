@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="logo">
-                        <a href="index.html"><img src="blog/img/logo.png" alt="Tech NewsLogo"></a>
+                        <a href="/"><img src="blog/img/logo.png" alt="Tech NewsLogo"></a>
                     </div>
                     <!-- Logo Section -->
                 </div>

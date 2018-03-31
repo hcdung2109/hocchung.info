@@ -932,8 +932,8 @@ section {
 }
 
 .category_article_content {
-    margin-top      : 20px;
-    font-size       : 15px;
+    /*margin-top      : 20px;*/
+    font-size       : 14px;
 }
 
 .category_article_date:after {

@@ -20,11 +20,18 @@ class HomeController extends Controller
         view()->share(compact('categories','tags'));
     }
 
+    public function index()
+    {
+        $articles = Article::getHomePage();
+
+        return view('blog.index', compact('articles'));
+    }
+
     /**
      * Default blog home
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index3()
     {
          $categories = Category::all();
 
