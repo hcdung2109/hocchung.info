@@ -129,5 +129,10 @@
 
 <!-- Theme Script -->
 <script src="blog/js/script.js"></script>
+
+<script src="blog/js/blog.js"></script>
+
+@yield('script')
+
 </body>
 </html>

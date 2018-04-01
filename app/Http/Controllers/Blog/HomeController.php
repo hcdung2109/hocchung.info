@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $articles = Article::getHomePage();
+        $articles = Article::getArticlesHomePage();
 
         return view('blog.index', compact('articles'));
     }
